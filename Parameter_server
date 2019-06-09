@@ -1,0 +1,38 @@
+A Parameter_server is a Dictionary that ros uses to store parameters.
+parameter can be used by nodes at runtime and normally
+used for static data,such as configratation parameters.
+
+to get list of parameter:
+~/catkin_ws$ rosparam list
+
+to get value of parameter :
+~/catkin_ws$ rosparam get <parameter name>
+
+to set value of parameter :
+~/catkin_ws$ rosparam set <parameter name> <value>
+
+
+example :
+
+ros@ros:~/catkin_ws$ rosparam list
+/background_b
+/background_g
+/background_r
+/rosdistro
+/roslaunch/uris/host_ros__34136
+/roslaunch/uris/host_ros__35153
+/roslaunch/uris/host_ros__36620
+/roslaunch/uris/host_ros__38681
+/roslaunch/uris/host_ros__42556
+/roslaunch/uris/host_ros__43438
+/roslaunch/uris/host_ros__44590
+/rosversion
+/run_id
+
+ros@ros:~/catkin_ws$ rosparam get /background_b 
+255
+ros@ros:~/catkin_ws$ rosparam set /background_b  256
+ros@ros:~/catkin_ws$ rosparam get /background_b 
+256
+
+
