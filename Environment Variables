@@ -1,0 +1,12 @@
+ros uses a set of lunix system environment variables in order to work properly.
+you can check these variables by typing :
+
+~/catkin_ws$ export |grep ROS
+
+output :
+declare -x ROSLISP_PACKAGE_DIRECTORIES=""
+declare -x ROS_DISTRO="indigo"
+declare -x ROS_ETC_DIR="/opt/ros/indigo/etc/ros"  
+declare -x ROS_MASTER_URI="http://localhost:11311" (can be accesed in any system)
+declare -x ROS_PACKAGE_PATH="/opt/ros/indigo/share:/opt/ros/indigo/stacks"
+declare -x ROS_ROOT="/opt/ros/indigo/share/ros"
