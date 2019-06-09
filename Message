@@ -1,0 +1,20 @@
+ros@ros:~/catkin_ws$ rosmsg -h
+rosmsg is a command-line tool for displaying information about ROS Message types.
+
+Commands:
+	rosmsg show	Show message description
+	rosmsg list	List all messages
+	rosmsg md5	Display message md5sum
+	rosmsg package	List messages in a package
+	rosmsg packages	List packages that contain messages
+
+
+Message :
+the messages are the types like int,float,char
+messages are defined in .msg files.which are located in msg directory of a pacakage.
+
+
+exercise:
+ros@ros:~/catkin_ws$ rosmsg show std_msgs/Int64 (pacakage/name of the message)
+int64 data
+
