@@ -72,5 +72,20 @@ Publisher is a node that keeps publishing into  a topic .
 then what is topic topic is a channel that acts as a pipe where other ROS node can either 
 publish or read infromation.
 
+ros@ros:~/catkin_ws$ rostopic -h
+rostopic is a command-line tool for printing information about ROS Topics.
+
+Commands:
+	rostopic bw	display bandwidth used by topic
+	rostopic delay	display delay of topic from timestamp in header
+	rostopic echo	print messages to screen
+	rostopic find	find topics by type
+	rostopic hz	display publishing rate of topic    
+	rostopic info	print information about active topic
+	rostopic list	list active topics
+	rostopic pub	publish data to topic
+	rostopic type	print topic type
+
+
 
 
