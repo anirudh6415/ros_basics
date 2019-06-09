@@ -8,3 +8,11 @@ package.xml (package information and dependences)
 
 
 
+>whenever you create a pakage ,you have to compile it in order to make your package work;
+ compile pakage using :
+ ~/catkin_ws$ catkin_make
+ 
+ it is done inside a catkin_ws directory
+
+
+
