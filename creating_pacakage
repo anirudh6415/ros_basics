@@ -1,4 +1,6 @@
-catkin_create_pkg pkg_name
+>create your pakage always inside a src directory of catkin_ws
+to create a pakage :
+~/catkin_ws/src$catkin_create_pkg pkg_name
 
 pakage folder contains :
 launch floder (.launch files)
@@ -13,6 +15,7 @@ package.xml (package information and dependences)
  ~/catkin_ws$ catkin_make
  
  it is done inside a catkin_ws directory
+
 
 
 
