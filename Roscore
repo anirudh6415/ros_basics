@@ -1,0 +1,32 @@
+the roscore is the main process that manages all the ros system.
+you always need to have a roscore running in order to work with ros.
+the command to launch roscore is :
+ros@ros:~/catkin_ws$ roscore
+
+output after the command :
+
+... logging to /home/ros/.ros/log/822e7520-8ae4-11e9-b68c-645a046fe687/roslaunch-ros-3794.log
+Checking log directory for disk usage. This may take awhile.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+
+started roslaunch server http://ros:38681/
+ros_comm version 1.11.21
+
+
+SUMMARY
+========
+
+PARAMETERS
+ * /rosdistro: indigo
+ * /rosversion: 1.11.21
+
+NODES
+
+auto-starting new master
+process[master]: started with pid [3806]
+ROS_MASTER_URI=http://ros:11311/
+
+setting /run_id to 822e7520-8ae4-11e9-b68c-645a046fe687
+process[rosout-1]: started with pid [3819]
+started core service [/rosout]
