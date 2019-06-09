@@ -60,6 +60,10 @@ data: 1051
 ....... continues 
 press ctr+c to stop 
 
+ros@ros:~/catkin_ws$ rostopic echo /control -n1
+data: 3141
+---
+-n1 would show the last published data 
 
 """so basically what code does is creating a publisher and publishing a messesge of type Int32 on /control topic""" 
 
