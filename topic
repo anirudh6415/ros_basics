@@ -87,5 +87,36 @@ Commands:
 	rostopic type	print topic type
 
 
+exercise:
+1.create a python program to publish for the topic topic turtle1/cmd_vel
+2.create a launch file 
 
+>moverobot.py:
 
+#! /usr/bin/env python
+
+import rospy
+from geometry_msgs.msg import Twist
+
+rospy.init_node('move_robot')
+pub = rospy.Publisher('/turtle1/cmd_vel',Twist,queue_size =1)
+rate = rospy.Rate(2)
+
+move = Twist()
+move.linear.x=2.0
+move.linear.y= 0.0
+move.linear.z= 0.0
+move.angular.x=0.0
+move.angular.y=0.0
+move.angular.z=0.5
+
+while not rospy.is_shutdown():
+	pub.publish(move)
+	rate.sleep()
+
+>moverobot.launch:
+
+<launch>
+	<node pkg="beginner_tutorials" type="moverobot.py" name="move_robot" output="screen">
+	</node>
+</launch>
