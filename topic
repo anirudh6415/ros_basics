@@ -120,3 +120,20 @@ while not rospy.is_shutdown():
 	<node pkg="beginner_tutorials" type="moverobot.py" name="move_robot" output="screen">
 	</node>
 </launch>
+
+excrise 2:
+ros@ros:~/catkin_ws$ rostopic echo /control
+control topic has not be published yet 
+
+now pub control topic by :
+Cros@ros:~/catkin_ws$ rostopic pub /control std_msgs/Int32 "data: 5"
+publishing and latching message. Press ctrl-C to terminate
+
+ros@ros:~/catkin_ws$ rostopic echo /control
+data: 5
+---
+
+the above would appear so now ros topic has published data of type Int32 ie 5
+
+
+
