@@ -18,3 +18,18 @@ exercise:
 ros@ros:~/catkin_ws$ rosmsg show std_msgs/Int64 (pacakage/name of the message)
 int64 data
 
+
+exercise:
+to create a custom msg file in your pakage :
+mkdir msg in your pakage
+
+in my case it was:
+ros@ros:~/catkin_ws/src/beginner_tutorials$  mkdir msg
+ros@ros:~/catkin_ws/src/beginner_tutorials/msg$ gedit age.msg
+
+in custom msg age.msg file add :
+float32 years
+float32 months 
+float32 days
+
+and save this data this is a created custom msg file age.msg
