@@ -74,6 +74,6 @@ ros@ros:~/catkin_ws$ rosrun beginner_tutorials controlsub.py
 after press ctr+c in publisher terminal  it would stop publishing so the subscriber doesnot get any data.
 
 execise :
-
-
+>1. add to the current pakage a python file that creates a publisher that indicates the age of the robot
+>2.for that you need to a new custom msg file Age.msg 
 
