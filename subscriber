@@ -77,3 +77,12 @@ execise :
 >1. add to the current pakage a python file that creates a publisher that indicates the age of the robot
 >2.for that you need to a new custom msg file Age.msg 
 
+step 1: create a custom msg file:
+ros@ros:~/catkin_ws/src/beginner_tutorials/msg$ gedit age.msg
+
+in custom msg age.msg file add :
+float32 years
+float32 months 
+float32 days
+
+
