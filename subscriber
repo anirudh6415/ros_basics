@@ -1,1 +1,79 @@
+subcriber code to be saved in src file in ur pavakage :
+
+#! /usr/bin/env python
+
+import rospy
+from std_msgs.msg import Int32
+
+def callback(msg):                                  #define a function called 'callback' that recives a parameter named 'msg'
+	
+	print msg.data                                    #print value 'data' inside the msg parameter 
+
+
+rospy.init_node('topic_subscriber')                 #initiate a node called topic_subscriber
+
+sub = rospy.Subscriber('/control',Int32 , callback) #create a subscriber object that will listen to /control
+                                                    #topic and will  cal call callback function each time it reads 
+						   #something from topic 
+rospy.spin()                                        #create a loop that will keep the program in execution
+
+
+now save it  and try run subcriber using :
+rosrun <pacakage name> <subscriber code file name>
+
+in my case it was like :
+ros@ros:~/catkin_ws$ rosrun beginner_tutorials controlsub.py
+
+nothing appears because topic is not pubished yet for topic_subscriber node
+
+now try publishing :
+ros@ros:~/catkin_ws$ rostopic pub /control std_msgs/Int32 'data: 5'
+publishing and latching message. Press ctrl-C to terminate
+
+then check in subscriber terminal it would appear like:
+ros@ros:~/catkin_ws$ rosrun beginner_tutorials controlsub.py
+5
+
+data 5 has been published from /topic_publisher node to /topic_subscriiber node using topic /control
+
+exercise :
+publish the control.py code now:
+
+ros@ros:~/catkin_ws$ rosrun beginner_tutorials control.py
+
+check the node present by:
+ros@ros:~/catkin_ws$ rosnode list
+/rosout
+/rostopic_8159_1560191513375
+/topic_publisher
+/topic_subscriber
+ 
+both publisher node and subscriber node would appear 
+
+in subscriber terminal it would be subscribed the published data as:
+ros@ros:~/catkin_ws$ rosrun beginner_tutorials controlsub.py
+5
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+^Cros@ros:~/catkin_ws$ 
+
+after press ctr+c in publisher terminal  it would stop publishing so the subscriber doesnot get any data.
+
+execise :
+
+
 
