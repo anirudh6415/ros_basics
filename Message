@@ -33,3 +33,76 @@ float32 months
 float32 days
 
 and save this data this is a created custom msg file age.msg
+
+so after this there is an '''IMPORTANT STEP''',We need to make sure that the msg files are turned into source code for C++, Python, and other languages:
+
+>1.Open package.xml, and make sure these two lines are in it and uncommented:
+
+  <build_depend>message_generation</build_depend>
+  <exec_depend>message_runtime</exec_depend>
+
+Note that at build time, we need "message_generation", while at runtime, we only need "message_runtime".
+
+>2.Open CMakeLists.txt in your favorite text editor
+
+>2a.Add the message_generation dependency to the find_package call which already exists in your CMakeLists.txt so that you can generate messages. 
+You can do this by simply adding message_generation to the list of COMPONENTS such that it looks like this:
+
+# Do not just add this to your CMakeLists.txt, modify the existing text to add message_generation before the closing parenthesis
+find_package(catkin REQUIRED COMPONENTS
+   roscpp
+   rospy
+   std_msgs
+   message_generation
+)
+
+You may notice that sometimes your project builds fine even if you did not call find_package with all dependencies. 
+This is because catkin combines all your projects into one, so if an earlier project calls find_package, 
+yours is configured with the same values. But forgetting the call means your project can easily break when built in isolation.
+
+>2b.Also make sure you export the message runtime dependency.
+
+catkin_package(
+  ...
+  CATKIN_DEPENDS message_runtime ...
+  ...)
+
+>2c.Find the following block of code:
+
+# add_message_files(
+#   FILES
+#   Message1.msg
+#   Message2.msg
+# )
+
+Uncomment it by removing the # symbols and then replace the stand in Message*.msg files with your .msg file, 
+such that it looks like this:
+
+add_message_files(
+  FILES
+  Num.msg
+  Age.msg
+)
+
+By adding the .msg files manually, we make sure that CMake knows when it has to reconfigure the project after 
+you add other .msg files.
+Now we must ensure the generate_messages() function is called.
+
+For ROS Hydro and later, you need to uncomment these lines:
+
+# generate_messages(
+#   DEPENDENCIES
+#   std_msgs
+# )
+
+so it looks like:
+
+    generate_messages(
+      DEPENDENCIES
+      std_msgs
+    )
+
+In earlier versions, you may just need to uncomment one line:
+
+generate_messages()
+
