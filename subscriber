@@ -85,4 +85,78 @@ float32 years
 float32 months 
 float32 days
 
+then create a publisher file:
+#! /usr/bin/env python
+
+import rospy
+from beginner_tutorials.msg import Age
+
+rospy.init_node('robo_age_publisher')
+pub = rospy.Publisher('/age/publisher',Age,queue_size=1)
+
+rate =rospy.Rate(2)
+age=Age()
+age.years= 7
+age.months= 8
+age.days= 6
+
+while not rospy.is_shutdown():
+	pub.publish(age)
+	
+	rate.sleep()
+	
+then create asubscriber file:
+#! /usr/bin/env python
+
+import rospy
+from beginner_tutorials.msg import Age
+
+def callback(msg):
+	print ("years :"+ str(msg.years)+"months :" + str (msg.months)+"days :" + str(msg.days))
+
+rospy.init_node('robo_age_subscriber')
+sub = rospy.Subscriber('/age/publisher',Age,callback)
+rospy.spin()
+
+then output of these would be:
+in my case:
+terminal 1:
+Cros@ros:~/catkin_ws$ rosrun beginner_tutorials agepub.py
+
+terminal 2:
+Cros@ros:~/catkin_ws$ rosrun beginner_tutorials agesub.py
+years :7.0months :8.0days :6.0
+years :7.0months :8.0days :6.0
+years :7.0months :8.0days :6.0
+years :7.0months :8.0days :6.0
+years :7.0months :8.0days :6.0
+years :7.0months :8.0days :6.0
+years :7.0months :8.0days :6.0
+years :7.0months :8.0days :6.0
+years :7.0months :8.0days :6.0
+years :7.0months :8.0days :6.0
+years :7.0months :8.0days :6.0
+years :7.0months :8.0days :6.0
+years :7.0months :8.0days :6.0
+years :7.0months :8.0days :6.0
+years :7.0months :8.0days :6.0
+years :7.0months :8.0days :6.0
+years :7.0months :8.0days :6.0
+
+the communicating nodes were :
+ros@ros:~/catkin_ws$ rosnode list
+""/robo_age_publisher    (this were the 
+/robo_age_subscriber""      nodes )
+/rosout
+/rostopic_8159_1560191513375
+/topic_publisher
+/topic_subscriber
+
+and the topic was:
+ros@ros:~/catkin_ws$ rostopic list
+''''/age/publisher''' (this was the topic)
+/control
+/rosout
+/rosout_agg
+
 
