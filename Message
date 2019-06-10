@@ -60,7 +60,7 @@ You may notice that sometimes your project builds fine even if you did not call 
 This is because catkin combines all your projects into one, so if an earlier project calls find_package, 
 yours is configured with the same values. But forgetting the call means your project can easily break when built in isolation.
 
->2b.Also make sure you export the message runtime dependency.
+>2b.Also make sure you export the message runtime dependency.uncomment CATKIN_DEPENDS and add message_runtime to it.
 
 catkin_package(
   ...
